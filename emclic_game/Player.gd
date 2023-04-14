@@ -4,6 +4,8 @@ onready var camera_pivot = $CameraPivot
 
 export var speed = 10.0
 export var acceleration = 10.0
+export var gravity = 50
+export var jump = 15
 export var sensitivity = 1.0
 export var min_angle = -80
 export var max_angle = 90
@@ -20,6 +22,11 @@ func _physics_process(delta):
 	camera_pivot.rotation_degrees.x = look_rotation.x
 	rotation_degrees.y = look_rotation.y
 	
+	if not is_on_floor():
+		velocity.y -= gravity*delta
+	elif Input.is_action_pressed("jump"):
+		velocity.y = jump
+	
 	#bieganie
 	
 	move_direction = Vector3(
@@ -31,7 +38,7 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, move_direction.x * speed, acceleration * delta)
 	velocity.z = lerp(velocity.z, move_direction.z * speed, acceleration * delta)
 	
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity, Vector3.UP)
 
 
 func _input(event):
