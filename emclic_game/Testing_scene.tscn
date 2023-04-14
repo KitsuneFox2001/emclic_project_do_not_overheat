@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="Testing_scene" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00805569, 4.76837e-07, -0.00406051 )
+
+[node name="GridMap" type="GridMap" parent="."]
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 5.9, 0, 0, 0, 1, 0, 0, 0, 5.9, 0, -1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 2 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90968, 0.0505641, 2.46798 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+mesh = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
