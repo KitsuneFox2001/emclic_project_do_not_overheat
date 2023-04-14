@@ -77,13 +77,13 @@ func handle_interaction(delta):
 	if raycast.is_colliding():
 		var object = raycast.get_collider()
 		if object.is_in_group("Interactable"):
-			print(interacting_timeout)
 			if process_game: 
 				intSys.text_visible = true
 			intSys.interact_text = object.interact_text
 			if Input.is_action_just_pressed("ui_interact") && !interacting:
 				interacting = true
-				interacting_timeout = 1
+				interacting_timeout = object.timeout
+				intSys.timeout = interacting_timeout
 				object.do_something()
 				intSys.text_visible = false
 				#self.target_velocity = Vector3.ZERO

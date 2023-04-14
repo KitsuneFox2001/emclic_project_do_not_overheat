@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://InteractSystem.gd" type="Script" id=1]
+[ext_resource path="res://assets/radial_loading_placehodler.png" type="Texture" id=2]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -26,3 +27,22 @@ margin_right = 20.0
 margin_bottom = 7.0
 text = "Tekst"
 align = 1
+
+[node name="Timeout" type="TextureProgress" parent="InteractSystem"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -590.5
+margin_top = -590.5
+margin_right = 590.5
+margin_bottom = 590.5
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 590, 590 )
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 2 )
+fill_mode = 4
+tint_under = Color( 0.384314, 0.286275, 0.286275, 0.403922 )
+tint_over = Color( 0.913725, 0.87451, 0.87451, 0 )
+tint_progress = Color( 0.607843, 0.431373, 0.0941176, 1 )

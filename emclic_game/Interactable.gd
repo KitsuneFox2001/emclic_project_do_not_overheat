@@ -4,6 +4,7 @@ extends Spatial
 onready var marker = $MeshInstance
 
 export var interact_text = "press [E]"
+export var timeout = 1.0
 
 var material : SpatialMaterial = null
 var default_color = null
